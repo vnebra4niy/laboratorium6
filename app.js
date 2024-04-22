@@ -17,6 +17,11 @@ app.use(session({
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+const bookRoutes = require('./routes/book')
+const userRoutes = require('./routes/user')
+app.use("/user", userRoutes)
+app.use("/", bookRoutes)
+
 const errorRoutes = require('./routes/error')
 app.use("*", errorRoutes)
 
